@@ -44,7 +44,7 @@ for item in items:
         else:
             record.title = span.text.strip()
             count += 1
-            record.popularity = "Not Given"
+            record.popularity = "0"
         if count == 3:
             records.append(record)
             record = TopRecord()

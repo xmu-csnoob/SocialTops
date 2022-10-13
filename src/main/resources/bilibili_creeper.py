@@ -27,7 +27,7 @@ for data in li:
     record = TopRecord()
     record.ranking = data['position']
     record.title = data['show_name']
-    record.popularity = 'Not Given'
+    record.popularity = '0'
     records.append(record)
 import time
 import csv
