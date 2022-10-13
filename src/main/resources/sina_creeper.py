@@ -14,7 +14,6 @@ header = {
     'Cookie': 'SINAGLOBAL=1812089928092.4663.1665389189803; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WWvBg5bKW0M6oiD6r2Uu1pP5JpX5KMhUgL.FozpSK.71heRSKe2dJLoI74SwHSaUgpz9PiF9g8XM7tt; ALF=1697188065; SSOLoginState=1665652067; SCF=AmoZWOX-xUmDMUIpuTQ6gpL1yMBYb0JbAOSF28HIGIIWg34Ps369M02JYMYDRkDw7UekpU4eCB5NVQc_J7YKJxk.; SUB=_2A25OQ6UzDeRhGeRP7lsR-C3Ezj-IHXVtOJH7rDV8PUNbmtAfLWzAkW9NUA2CM5oYXNXK9-eAgopxHsEbq5BxszHj; _s_tentry=login.sina.com.cn; Apache=366329942574.95667.1665652068651; ULV=1665652068671:3:3:3:366329942574.95667.1665652068651:1665479629575; UOR=,,cn.bing.com'
 }
 r = requests.get(url, headers=header)
-print(r.text)
 soup = BeautifulSoup(r.text, 'html.parser')
 items = soup.find('section', {'class': 'list'})
 
