@@ -3,7 +3,7 @@
 <mapper namespace="cn.edu.xmu.wwf.sinatop.sinatops.mapper.DataCollectMapper">
     <insert id="insertTopRecord" parameterType="cn.edu.xmu.wwf.sinatop.sinatops.model.TopRecordPo">
         INSERT INTO tops
-        (title,ranking,time,popolarity,platform)
+        (title,ranking,time,popularity,platform)
         VALUES (#{title},#{ranking},#{time},#{popularity},#{platform});
     </insert>
 </mapper>
