@@ -55,7 +55,7 @@ public class DataCollectController {
                 // 分割
                 String[] columns = line.split(DELIMITER);
                 // 打印行
-                TopRecordPo topRecordPo=new TopRecordPo(columns[1],Integer.parseInt(columns[0]),columns[2],Double.parseDouble(columns[3]),columns[4]);
+                TopRecordPo topRecordPo=new TopRecordPo(columns[1],Integer.parseInt(columns[0]),columns[3],Double.parseDouble(columns[2]),columns[4]);
                 dataCollectMapper.insertTopRecord(topRecordPo);
             }
         } catch (IOException ex) {
