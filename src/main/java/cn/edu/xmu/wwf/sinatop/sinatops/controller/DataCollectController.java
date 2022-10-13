@@ -4,20 +4,14 @@ import cn.edu.xmu.wwf.sinatop.sinatops.mapper.DataCollectMapper;
 import cn.edu.xmu.wwf.sinatop.sinatops.model.TopRecordPo;
 import cn.edu.xmu.wwf.sinatop.sinatops.utils.PythonScriptCaller;
 import cn.edu.xmu.wwf.sinatop.sinatops.utils.PythonScripts;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
 
 /**
  * @author wangwenfei
@@ -44,6 +38,18 @@ public class DataCollectController {
         // 创建 reader
         UploadDataFromStaticFile("zhihu.csv");
     }
+    @Scheduled(cron="0/60000 * *  * * ? ")
+    public void collectDataFromBiliBili() throws IOException, InterruptedException {
+        PythonScriptCaller.creeper(PythonScripts.BILIBILI_CREEPER);
+        // 创建 reader
+        UploadDataFromStaticFile("bilibili.csv");
+    }
+    @Scheduled(cron="0/60000 * *  * * ? ")
+    public void collectDataFromBaidu() throws IOException, InterruptedException {
+        PythonScriptCaller.creeper(PythonScripts.BAIDU_CREEPER);
+        // 创建 reader
+        UploadDataFromStaticFile("baidu.csv");
+    }
 
     private void UploadDataFromStaticFile(String path) {
         try (BufferedReader br = Files.newBufferedReader(Paths.get(path))) {
@@ -62,4 +68,5 @@ public class DataCollectController {
             ex.printStackTrace();
         }
     }
+
 }

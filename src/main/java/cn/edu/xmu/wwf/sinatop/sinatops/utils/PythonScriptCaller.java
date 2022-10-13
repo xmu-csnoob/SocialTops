@@ -1,11 +1,8 @@
 package cn.edu.xmu.wwf.sinatop.sinatops.utils;
 
 import lombok.experimental.UtilityClass;
-import org.springframework.context.annotation.Bean;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 @UtilityClass
 public class PythonScriptCaller {
